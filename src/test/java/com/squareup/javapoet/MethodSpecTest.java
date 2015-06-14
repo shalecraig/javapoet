@@ -145,6 +145,18 @@ public final class MethodSpecTest {
         + "}\n");
   }
 
+  @Test public void canCommentInMethods() {
+    MethodSpec method = MethodSpec
+            .methodBuilder("foo")
+            .addComment("Test comment.")
+            .returns(TypeName.VOID)
+            .build();
+    assertThat(method.toString())
+            .isEqualTo("void foo() {\n"
+            +"  // Test comment.\n"
+            +"}\n");
+  }
+
   @Test public void overrideExtendsOthersWorksWithActualTypeParameters() {
     TypeElement classElement = getElement(ExtendsOthers.class);
     DeclaredType classType = (DeclaredType) classElement.asType();

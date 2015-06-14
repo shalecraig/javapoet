@@ -449,6 +449,11 @@ public final class MethodSpec {
       return this;
     }
 
+    public Builder addComment(String format, Object... args) {
+      code.addComment(format, args);
+      return this;
+    }
+
     public MethodSpec build() {
       return new MethodSpec(this);
     }

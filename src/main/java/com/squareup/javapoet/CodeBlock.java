@@ -210,6 +210,13 @@ public final class CodeBlock {
       return this;
     }
 
+    public Builder addComment(String format, Object... args) {
+      add("$[// ");
+      add(format, args);
+      add("\n$]");
+      return this;
+    }
+
     public Builder add(CodeBlock codeBlock) {
       formatParts.addAll(codeBlock.formatParts);
       args.addAll(codeBlock.args);
